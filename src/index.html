@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Online Exam Portal</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+<script>
+
+    window.onload = function() {
+        document.addEventListener("contextmenu", function(e){
+          e.preventDefault();
+        }, false);
+        document.addEventListener("keydown", function(e) {
+        document.onkeydown = function(e) {
+          // "I" key
+          if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+            
+            disabledEvent(e);
+          }
+          // "J" key
+          if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            disabledEvent(e);
+          }
+          // "S" key + macOS
+          if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+            disabledEvent(e);
+          }
+          // "U" key
+          if (e.ctrlKey && e.keyCode == 85) {
+            disabledEvent(e);
+          }
+          if(e.ctrlKey && e.keyCode == 80){
+            disabledEvent(e);
+          }
+          if(e.keyCode == 45){
+            disabledEvent(e)
+          }
+          // "F12" key
+          if (e.keyCode == 123) {
+            disabledEvent(e);
+          }
+           if ((e.ctrlKey && e.shiftKey &&e.keyCode==73)){
+             disabledEvent(e)
+           }
+           if((e.ctrlKey  && e.keyCode==83)){
+          disabledEvent(e)
+           }
+           if((e.ctrlKey  && e.keyCode==67)){
+             disabledEvent(e)
+           }
+        }
+        }, false);
+        function disabledEvent(e){
+          if (e.stopPropagation){
+            e.stopPropagation();
+          } else if (window.event){
+            window.event.cancelBubble = true;
+          }
+          e.preventDefault();
+          return false;
+        }
+      };
+    
+    
+    
+    
+    </script>
+</html>

@@ -1,0 +1,142 @@
+<div id="result" *ngIf="mode!='result'">
+  <div class="row">
+    <nav class="col-12 navbar navbar-default" id="menu-bar"> 
+      <div class="time-reaming">
+      <div *ngIf="config.duration" class="testTitle">Time: {{ellapsedTime}} / {{duration}}</div></div>
+      <span class="blinking">Don't Refresh the Page !! ...</span>
+    </nav>
+  </div>
+  <div class="row" >
+    <h2 class="col-12 text-center font-weight-normal ">{{exam.name}}</h2>
+    <!-- <div class="col-2 alert alert-warning" role="alert" id="refresh-msgId">Don't Refresh the Page !! ...</div> -->
+  </div>
+
+</div>
+<hr />
+<div class="row ">
+  <div class="col-10">
+    <div *ngIf="mode=='exam' && exam" >
+      <div *ngFor="let question of filteredQuestions;">
+        <div class="badge badge-info">Question {{pager.index + 1}} of {{pager.count}}.</div>
+        <!-- <div *ngIf="config.duration" class="badge badge-info float-right">Time: {{ellapsedTime}} / {{duration}}</div> -->
+        <h3 class="font-weight-normal padtop" >{{pager.index + 1}}.
+          <span [innerHTML]="question.name"></span>
+        </h3>
+        <div class="row text-left options">
+          <div class="col-12" *ngFor="let option of question.options">
+            <div class="option">
+              <label class="font-weight-normal" [attr.for]="option.id"><span>{{index}}</span>
+                <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected" (change)="onSelect(question, option);" /> {{option.name}}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="text-center">
+        <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(0);">First</button>
+        <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Prev</button>
+        <button class="btn btn-primary" (click)="goTo(pager.index + 1);">Next</button>
+        <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Last</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-2 statusOverflow" *ngIf="mode!='result'" style=" margin-bottom: 114px; margin-bottom: 24px;">
+      <div class="panel panel-default">
+        <div class="panel-heading panel-heading-custom">
+          <i class="fa fa-bar-chart-o fa-fw"></i> Test Status
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+      <div class="cursor-pointer col" *ngFor="let question of exam.questions; let index = index;">
+        
+        <div (click)="goTo(index)" class="p-1 mb-1 {{ isAnswered(question) == 'A'? 'badge badge-info': '' }}">{{index + 1}}</div>
+      
+      </div>
+     
+      </div>
+      <div class="submitButtonRow">
+          <div clads="col">
+            <button class="btn btn-primary text-right" (click)="formSubmit();">Submit exam</button>
+          </div>
+          </div>
+    </div>
+
+
+
+
+  <!-- removed this code -->
+  <!-- <div class="row text-center" *ngIf="mode=='review'">
+        <div class="col-4 cursor-pointer" *ngFor="let question of exam.questions; let index = index;">
+          <div (click)="goTo(index)" class="p-3 mb-2 {{ isAnswered(question) == 'Answered'? 'bg-info': 'bg-warning' }}">{{index + 1}}. {{ isAnswered(question) }}</div>
+        </div>
+      </div> -->
+  <div class="result" *ngIf="mode=='result'">
+    <div class="row justify-content-center align-self-center">
+      <div class="col">
+        <div class="panel panel-default">
+          <div class="panel-heading panel-heading-custom">
+            <i class="fa fa-bar-chart-o fa-fw"></i> Result
+          </div>
+          <!-- <div class="col-sm-12 panel-body">
+            <div class="col-md-6"> -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Descriptions</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Attempted Question</td>
+                    <td>{{isAttempted}}</td>
+                  </tr>
+                  <tr>
+                    <td>Un-Attempted Question</td>
+                    <td>{{isNotAttempted}}</td>
+                  </tr>
+                  <tr>
+                    <td>Total Correct Answer</td>
+                    <td>{{correctAnswers}}</td>
+                  </tr>
+                  <tr>
+                    <td>Total Wrong Answer</td>
+                    <td>{{wrongAnswers}}</td>
+                  </tr>
+                  <tr>
+                    <td>Result</td>
+                    <td>Fail</td>
+                  </tr>
+                  <tr>
+                    <td>Performance</td>
+                    <td>Bad</td>
+                  </tr>
+                </tbody>
+              </table>
+            <!-- </div>
+
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- questions and answers-->
+    <div class="row">
+      <div class="result">
+        <div *ngFor="let question of exam.questions; let index = index">
+          <div class="result-question">
+            <h4>{{index + 1}}. {{question.name}}</h4>
+            <div class="row">
+              <div class="col-6" *ngFor="let Option of question.options">
+                <input id="{{Option.id}}" type="checkbox" disabled="disabled" [(ngModel)]="Option.selected" /> {{Option.name}}
+              </div>
+            </div>
+            <div class="alert {{ isCorrect(question) == 'correct'? 'alert-success': 'alert-danger'}}">Your answer is {{isCorrect(question)}}.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+</div>

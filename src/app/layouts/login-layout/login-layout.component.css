@@ -1,0 +1,25 @@
+body {
+    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+        width: 100%;
+}
+
+.login-page{
+    background: #d2d6de;    
+    min-height: 100vh;
+}
+.logo{
+    width: 200px;
+    background-color:transparent;
+  }
+  .img-responsive{
+    max-width:100%;
+    display:block;
+  }
+  

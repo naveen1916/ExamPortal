@@ -1,0 +1,89 @@
+
+header {
+    box-shadow: -1px -3px 11px #888888;
+    position: relative;
+    z-index: 99999;
+}
+header .nav li a {
+    text-indent: -9999px;
+    width: 35px;
+    padding: 0px;
+    height: 35px;
+    margin: 0px 10px;
+}
+header .nav .home a, header .header-mobile-menu .collapse .dropdown-item.home i {
+    background-position: 0 0;
+}
+header .nav .guide a, header .header-mobile-menu .collapse .dropdown-item.guide i{
+    background-position: -60px 0;
+}
+header .nav .reports a, header .header-mobile-menu .collapse .dropdown-item.reports i {
+    background-position: -119px 0;
+}
+header .nav .scheduler a, header .header-mobile-menu .collapse .dropdown-item.scheduler i {
+    background-position: -178px 0;
+}
+header .nav .bookmark a, header .header-mobile-menu .collapse .dropdown-item.bookmark i {
+    background-position: -240px 0;
+}
+header .nav .chat a, header .header-mobile-menu .collapse .dropdown-item.chat i {
+    background-position: -299px 0;
+}
+header .nav .notification a, header .header-mobile-menu .collapse .dropdown-item.notification i {
+    background-position: -359px 0;
+}
+header .nav .help a, header .header-mobile-menu .collapse .dropdown-item.help i{
+    background-position: -419px 0;
+}
+header .header-mobile-menu .navbar-toggler:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1em;
+    height: 0.15em;
+    background: #F08324;
+    box-shadow: 
+        0 0.25em 0 0 #F08324,
+        0 0.5em 0 0 #F08324;
+}
+header .header-mobile-menu .navbar-toggler {
+    position: relative;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+} 
+
+header .header-mobile-menu .collapse{
+    position: absolute;
+    right: 0px;
+    width: 100%;
+    background: #fff;
+    top: 86px;
+    -webkit-box-shadow: 0px 3px 10px #888888;
+    box-shadow: 0px 3px 10px #888888;
+    padding: 15px 0px;
+}
+header .header-mobile-menu .collapse .dropdown-item{
+    overflow: hidden;
+    padding: 5px 30px;
+}
+header .header-mobile-menu .collapse .dropdown-item.active {
+    background-color: #fff;
+}
+header .header-mobile-menu .collapse .dropdown-item i {
+    width: 35px;
+    height: 35px;
+    display: block;
+    float: left;
+}
+header .header-mobile-menu .collapse .dropdown-item span {
+    display: block;
+    float: left;
+    padding-left: 10px;
+    padding-top: 9px;
+    color: #545454;
+    font-size: 14px;
+}
+
+

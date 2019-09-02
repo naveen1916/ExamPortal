@@ -1,0 +1,19 @@
+.main-content {
+    background-color:#f7f7f7;
+    padding: 10px 20px -5px 0px;    
+    flex: 79% !important;
+    -webkit-box-flex: 79% !important;
+    -ms-flex: 79% !important;
+    padding:25px;
+    min-height:calc(100vh - 110px);
+    
+}
+.main-content h1 {
+    font-size: 16px;
+    border-bottom: 1px solid #dedede;
+    color: #000;
+    margin-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 11px;
+    font-weight: bold;
+}

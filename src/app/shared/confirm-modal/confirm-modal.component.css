@@ -1,0 +1,117 @@
+/* .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+ 
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+ 
+.fade.in {
+    opacity: 1;
+}
+ 
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+ 
+.modal.in .modal-dialog {
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+}
+ 
+.modal.fade .modal-dialog {
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    -webkit-transform: translate(0,-25%);
+    -ms-transform: translate(0,-25%);
+    -o-transform: translate(0,-25%);
+    transform: translate(0,-25%);
+}
+ 
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 600px;
+        margin: 30px auto;
+    }
+} */
+
+.modal-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    height: 100%;
+}
+.modal-dialog {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 50%;
+    border-radius: 0px;
+}
+.modal-dialog .modal-content {
+    border: 1px solid #f1f1f1;
+    border-radius: 0px;
+}
+.modal-dialog .modal-header {
+    background-color: #5F5F60;
+    color: #f1f1f1;
+    border-radius: 0px;
+    padding: 10px 15px;
+}
+.modal-dialog .modal-header .modal-title, .modal-dialog .modal-header a {
+    color: #f1f1f1;
+    font-size: 18px;
+}
+
+.modal-dialog .modal-sub-header {
+    background-color: #fbfbfb;
+    padding: 5px 15px;
+    overflow: hidden;
+}
+.modal-dialog .modal-sub-header div{
+    color: #b8b8b8;
+    font-size: 14px;
+    font-weight: 500;
+}
+.modal-dialog .modal-body .form-group label{
+    width: 100%;
+    color: #707070;
+}
+.modal-dialog .modal-body .form-group label + input, .modal-dialog .modal-body .form-group label + textarea {
+    width: 100%;
+    border: 1px solid #e6e6e6;
+    padding:5px 10px;
+}
+.modal-dialog .modal-body .form-group label + textarea {
+    height: 75px;
+}
+.modal-dialog .modal-body .form-group input::-webkit-input-placeholder,
+.modal-dialog .modal-body .form-group textarea::-webkit-input-placeholder {
+    color: #c2c2c2;
+    font-size: 14px;
+}
+.modal-dialog .modal-body .form-group span {
+    color: #c2c2c2;
+    font-size: 14px;
+}
+.modal-dialog .modal-footer {
+    justify-content: center;
+}

@@ -1,0 +1,107 @@
+<!-- <h3>
+  Profile Info
+</h3>
+<div class="row m-0">
+  <div class="col-8 p-0">
+    <form [formGroup]="registerUserForm" (ngSubmit)="saveRegisteredUserDetails(registerUserForm.value)">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" class="form-control" formControlName="firstName">
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" class="form-control" formControlName="lastName">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="telephoneNumber">Telephone Number:</label>
+        <input type="number" class="form-control" formControlName="telephoneNumber">
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth">Date Of Birth:</label>
+        <input type="date" class="form-control" formControlName="dateOfBirth">
+      </div>
+      <div class="form-group">
+        <label for="yearOfExperience">Year Of experience:</label>
+        <input type="number" class="form-control" formControlName="yearOfExperience">
+      </div>
+      <div class="form-group">
+        <label for="skills">Skills:</label>        
+        <select>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
+      <div class="form-group filter-btn-block">
+        <input type="submit" value="Submit" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
+</div> -->
+<!-- 
+<div class="register-box">
+  <div class="register-logo">
+    <a href="../../index2.html">
+      <b>HAPPIESTMINDS</b>
+    </a>
+  </div> -->
+
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">Register a new membership</p>
+
+      <form action="../../index.html" method="post">
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control" placeholder="Full name">
+          <span class="fa fa-user form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="email" class="form-control" placeholder="Email">
+          <span class="fa fa-envelope form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="password" class="form-control" placeholder="Password">
+          <span class="fa fa-lock form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="password" class="form-control" placeholder="Retype password">
+          <span class="fa fa-lock form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="number" class="form-control" placeholder="Mobile Number">
+          <span class="fa fa-mobile form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="number" class="form-control" placeholder="Year Of Experience" formControlName="yearOfExperience">
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="checkbox icheck">
+              <label>
+                <input type="checkbox"> I agree to the
+                <a href="#">terms</a>
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+    
+
+      <a [routerLink]="['/auth/login']" href="javascript(0)" class="text-center">I already have a membership</a>
+    </div>
+    <!-- /.form-box -->
+  </div>
+  <!-- /.card -->
+<!-- </div> -->
+<!-- /.register-box -->

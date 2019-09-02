@@ -1,0 +1,63 @@
+<!-- <div class="row m-0 login-container">
+  <div class="col-offset-5 col-9 col-sm-6 col-lg-3 m-auto">
+    <div class="form-login">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+        <h4 class="text-center mb-4">
+          <img src="assets/images/HM-logo.jpg" />
+        </h4>
+        <div class="form-group">
+          <input name="userName" type="text" class="form-control" placeholder="User Name" formControlName="username">
+        </div>
+        <div class="form-group">
+          <input name="password" class="form-control" type="password" placeholder="Password" formControlName="password">
+        </div>
+        <input type="submit" class="btn btn-block btn-primary" value="Login" [disabled]="!loginForm.valid">
+      </form>
+    </div>
+    <div>
+      If you are an existing customer login by giving valid username and password, else please register by click on
+      <button class="btn btn-link" routerLinkActive="active" [routerLink]="['/auth/signup']">SignUp</button>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="login-box">
+  <div class="login-logo">
+    <a>
+      <img class="logo img-responsive" src="assets/images/my-logo.png" />
+    </a>
+  </div> -->
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Sign in to start your session</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+      <div class="form-group has-feedback">
+        <input name="userName" type="text" class="form-control" placeholder="User Name" formControlName="email">
+        <span class="fa fa-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input name="password" class="form-control" type="password" placeholder="Password" formControlName="password">
+        <span class="fa fa-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-8">
+          <div class="checkbox icheck">
+            <label>
+              <input type="checkbox"> Remember Me
+            </label>
+          </div>
+        </div>
+        <div class="col-4">
+          <button type="submit" class="btn btn-primary btn-block btn-flat" value="Login" [disabled]="!loginForm.valid">Login</button>
+        </div>
+      </div>
+    </form>
+   
+    <a href="#">I forgot my password</a>
+    <br>
+    <a [routerLink]="['/auth/signup']" class="text-center">Register a new membership</a>
+
+  </div>
+  <!-- /.login-box-body -->
+<!-- </div> -->

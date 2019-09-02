@@ -1,0 +1,14 @@
+.footer {
+    position: inherit;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* background-color:#007bcd; */
+    color: black;
+    text-align: center;
+    background: #fff;
+    /* padding: 15px; */
+    /* color: #444; */
+    border-top: 1px solid #d2d6de;
+    min-height:10px;
+ }

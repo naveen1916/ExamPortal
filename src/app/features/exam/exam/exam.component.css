@@ -1,0 +1,94 @@
+hr.vertical
+{
+   width: 0px;
+   height: 100%; /* or height in PX */
+} 
+.statusOverflow
+{
+    overflow:auto;
+    background: #F5F5F5;
+    color: #000000;
+    padding: 15px;
+    font-size: 15px;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+.panel-default > .panel-heading {
+    color: #fff;
+    background-color: #D34646;
+    font-size: 20px;
+}
+.panel-body {
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+.panel {
+    border-radius: 0px !important;
+    margin-top: 10px;
+    border: none;
+}
+.panel-heading {
+    padding: 10px 15px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom: none;
+}
+.panel-heading-custom {
+    border-color: #D34646 !important;
+    border-top: 1px solid #D34646;
+    border-left: 1px solid #D34646;
+    border-right: 1px solid #D34646;
+}
+.time-reaming {
+    padding: 5px;
+    color: #fff;
+    float: right;
+    display: inline-block;
+    font-size: 20px;
+}
+.navbar-default {
+    background-color: #9bbb59;
+}
+
+.navbar {
+    border-radius: 0px;
+    margin: -1px;
+}
+
+.time-reaming input[type="text"] {
+    background-color: #9BBB59;
+    border: 1px solid #9BBB59;
+    width: 25px;
+}
+
+.submitButtonRow{
+    float: right;
+    padding-bottom: 10px;
+}
+.result{
+    padding: 25px;
+}
+
+.blinking{
+    color: red !important;
+    animation: blinker 1.7s cubic-bezier(.5, 0, 1, 1) infinite alternate;  
+}
+.blink{
+     animation:blinkingText 0.8s step-start infinite; 
+     /* 0.8s infinite; */
+}
+
+.padtop{
+    margin-top: 23px;
+    margin-bottom: 63px;
+
+}
+@keyframes blinkingText{
+    
+    50% {
+        opacity: 0;
+      }
+}
+@keyframes blinker { to { opacity: 0; } }

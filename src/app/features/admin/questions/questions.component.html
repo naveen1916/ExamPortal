@@ -1,0 +1,32 @@
+<!-- <button [routerLink]="['/admin/add']" class="btn btn-link">
+  <i class="fa fa-plus"> New Questions</i>
+</button>
+<hr> -->
+<!-- <h2 class="text-center">List Of Questions</h2>
+<div *ngFor="let question of questions.questions | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+  {{i+1}} . {{ question.name }}
+  <div *ngFor="let option of question.options">
+    <input type="checkbox" value="{{option.name}}" disabled [checked]="option.isAnswer"> {{option.name}}
+  </div>
+</div>
+<pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
+ -->
+
+<div class="container">
+  <div class="row">
+    <button class="col col-3" (click)='addNewQuestion()' class="btn btn-link">
+      <i class="fa fa-plus"> New Questions</i>
+    </button>
+    <div class="col col-9">
+      <h2>List Of Questions</h2>
+    </div>
+  </div>
+  <hr>
+  <div class="card" *ngFor="let question of questions | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+    <h4 class="cardheader"> {{i+1}} .  <a (click)='questionClick(question)' >{{ question.question }}</a></h4>    
+    <div class="card-body" *ngFor="let option of question.options">
+      <input type="checkbox" value="{{option.name}}" disabled [checked]="option.isAnswer"> {{option.name}}
+    </div>
+  </div>
+</div>
+<pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>

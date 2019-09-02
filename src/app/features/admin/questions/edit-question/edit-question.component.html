@@ -1,0 +1,95 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">{{title}}</h4>
+      <a href="javascript:void()" (click)="close()">X</a>
+    </div>
+    <!-- <div class="modal-sub-header">
+      <div class="text-center">
+        <h2>Add Questions</h2>
+      </div>
+      <div class="w-50 text-right float-right">{{userName}}</div>
+    </div> -->
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-4 form-group">
+          <label>Competency</label>
+          <select [ngModel]="selectedCompetancy" class="form-control" (change)="selectChangeCompetancyHandler($event)">
+            <option *ngFor="let comp of competancies" value={{comp.level}}>
+              {{comp.description}}
+          </option>
+        </select>
+        </div>
+        <div class="col-4 form-group">
+          <label>Technology </label>
+          <select class="form-control" [ngModel]="selectedTechnology" (change)="selectChangeTechnologyHandler($event)">
+            <option *ngFor="let tech of technologies" value={{tech.name}}>
+              {{tech.description}}
+          </option>
+        </select>
+        </div>
+        <div class="col-4 form-group">
+          <label>Years of Exp </label>
+          <select class="form-control" [ngModel]="selectedYearOfExperience" (change)="selectChangeYearHandler($event)">
+            <option *ngFor="let yearExp of yearOfExperience" value={{yearExp.exp}}>
+              {{yearExp.exp}}
+          </option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 form-group ">
+          <textarea class="form-control" [(ngModel)]="questionName" placeholder="Please Enter Question"></textarea>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 form-group">
+          <input type="text" [(ngModel)]="option" ng-required class="form-control" placeholder="Options">
+        </div>
+        <div class="col-3 form-group">
+          <button class="btn btn-link" (click)="addOptions()">
+            <i class="fa fa-plus"> Add Options</i>
+          </button>
+        </div>
+        <div class="col-3 form-group">
+          <span class="error">{{errorMessage}}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class=" col-2 form-group">
+          <label for="options">Options:</label>
+        </div>
+        <div class="col-8">
+          <div *ngFor="let option of IOptions">
+            <!-- <label>
+              <input type="radio" name="options" (change)="onSelectionChange(option)" value="{{option.value}}" [checked]="option.isAnswer"
+              /> {{option.name}}
+              <a (click)='removeOption(option)'>
+                <i class="fa fa-times error" aria-hidden="true"></i> Remove</a>
+            </label> -->
+            <div class="row">
+                <div class="col-col-1">
+                    <a (click)='removeOption(option)'>
+                        <i class="fa fa-times error" aria-hidden="true"></i> Remove</a>
+                </div>
+              <div class="col col-8">
+                  <input type="radio" name="options" (change)="onSelectionChange(option)" value="{{option.value}}" [checked]="option.isAnswer"
+                  /> {{option.name}}
+              </div>             
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 form-group">
+          <input type="button" (click)="onSave()" class="btn btn-primary" value="Save">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer" *ngIf="showFooter==true">
+      <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
+      <button type="button" class="btn btn-default" (click)="close()">Cancel</button>
+    </div>
+  </div>
+</div>

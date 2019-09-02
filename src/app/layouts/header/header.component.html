@@ -1,0 +1,60 @@
+<header class="header">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header logo">
+        <!-- <img class="img-responsive" src="assets/images/my-logo.png" /> -->
+      </div>
+      <ul class="nav d-none d-md-flex">
+        <li class="nav-item ">
+          <a class="nav-link fa fa-home" routerLinkActive="active" [routerLink]="['/exam/home']" data-toggle="tooltip" data-placement="bottom" title="Home" > Home</a>
+        </li>
+      <!-- <li class="nav-item ">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/questions']" href="#" data-toggle="tooltip" data-placement="bottom" title="Exam"> Questions</a>
+        </li>       
+        <li class="nav-item">
+          <a class="nav-link fa fa-dashboard" routerLinkActive="active" [routerLink]="['/admin/users']"  data-toggle="tooltip" data-placement="bottom" title="Dashboard"> Users</a>
+        </li> -->
+       
+        <li class="nav-item">
+          <div class="profile-details">
+            <span>
+              <img src="assets/images/profile-icon.png" title="Profile Pic"/>
+            </span>
+            <div class="profile-details-menu">
+                <div class="navbar-toggler" (click)="toggleCollapse()">
+                </div>
+                <div class="collapse" [class.show]="show">
+                  <span>{{ userName }}</span>
+                  <button class="btn btn-primary">LOGOUT</button>
+                </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      
+
+      <div class="header-mobile-menu d-md-none">
+          <div class="navbar-toggler" (click)="toggleCollapseMenu()">
+          </div>
+          <div class="collapse" [class.show]="showMenu">
+              <span class="username">{{ userName }}</span>
+              <div class="profile-details">
+                  <span>
+                    <img src="assets/images/profile-icon.png" title="Profile Pic"/>
+                  </span>
+                  <span class="username">{{ userName }}</span>
+              </div>
+              <a class="dropdown-item home" routerLinkActive="active" [routerLink]="['/report']"><i></i><span>Home</span></a>
+              <a class="dropdown-item guide" routerLinkActive="active" [routerLink]="['/']"><i></i><span>Guide</span></a>
+              <a class="dropdown-item scheduler" routerLinkActive="active" [routerLink]="['/scheduler']"><i></i><span>Scheduler</span></a>
+              <a class="dropdown-item bookmark" href="#"><i></i><span>Bookmark</span></a>
+              <a class="dropdown-item notification" href="#"><i></i><span>Notification</span></a>
+              <a class="dropdown-item help" href="#"><i></i><span>Help</span></a>
+              <div class="logout-btn">
+                <button class="btn btn-primary">LOGOUT</button>
+              </div>
+          </div>
+      </div>
+    </div>
+  </nav>
+</header>

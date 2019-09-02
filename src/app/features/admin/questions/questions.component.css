@@ -1,0 +1,25 @@
+.card{
+    margin-bottom: 5px;
+}
+
+.card h4{
+  
+    text-align: left !important;
+}
+.cardheader
+{
+    font-weight: bold;
+    /* color: #fff!important; */
+    /* background-color: #2196F3!important; */
+    padding-left : 5px;
+}
+
+.card-body {   
+    padding: 0rem !important;
+    margin-left: 65px !important;
+}
+a {text-decoration: none;}
+a:hover { 
+    cursor: -webkit-grab; cursor: grab;    
+    text-decoration: underline !important;
+}
