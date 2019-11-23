@@ -1,0 +1,101 @@
+<div *ngIf="data.name!='delete' && data.name!='exitemployee'"  >
+  
+      <div class="modal-header mod-head-bg">
+        <h4 class="modal-title w-100 add-new-emp-pop" id="myModalLabel">Add User Details</h4>
+        <button type="button" class="close " mat-dialog-close='false'>
+          <span aria-hidden="true" class="white-colr">&times;</span>
+        </button>
+      </div>
+      <form #updateForm="ngForm" (ngSubmit)="adduserDetails(updateForm)" name="addForm">
+      <div class="modal-body">
+        <div class="row pad-lr-7r">
+          <div class="col-lg-4 mar-20-tb">
+            <!-- Default input -->
+            <label for="exampleForm2 pt-lg-0 pt-3">First Name</label>
+            <input type="text" id="exampleForm2" type="text" [(ngModel)]="fname" #fname1="ngModel" name="fname" required
+              class="form-control">
+  
+              <div *ngIf="fname1.invalid && (fname1.dirty || fname1.touched)|| formSubmitted&&fname1.errors">
+                  <div class="text-danger" *ngIf="fname1.errors.required">Please Enter First Name</div>
+                  <div  class="text-danger" *ngIf="(fname1.errors.pattern)">Enter Characters only</div>
+                </div>
+  
+          </div>
+          <div class="col-lg-4 mar-20-tb">
+            <!-- Default input -->
+            <label for="exampleForm2  pt-lg-0 pt-3">Last Name</label>
+            <input type="text" id="exampleForm2" class="form-control" [(ngModel)]="lname" #lname1="ngModel" name="lname" required>
+  
+            <div *ngIf="lname1.invalid && (lname1.dirty || lname1.touched)|| formSubmitted&&lname1.errors">
+                <div class="text-danger" *ngIf="lname1.errors.required">Please Enter Last Name</div>
+                <div  class="text-danger" *ngIf="(lname1.errors.pattern)">Enter Characters only</div>
+              </div>
+  
+           
+          </div>
+          <div class="col-lg-4 mar-20-tb">
+            <!-- Default input -->
+            <label for="exampleForm2  pt-lg-0 pt-3">Email</label>
+            <input id="exampleForm2" type="email" type="email"  [(ngModel)]="email" #email1="ngModel" name="email"
+              class="form-control">
+  
+              <div *ngIf="email1.invalid && (email1.dirty || email1.touched)|| formSubmitted&&email1.errors">
+  
+                  <div class="text-danger" *ngIf="email1.errors.required">Please Enter Email </div>
+                  <div class="text-danger" *ngIf="(email1.errors.pattern)">Invalid Email </div>
+                  
+                </div>
+                <div class="text-danger" *ngIf="check1">Email already existed</div> 
+          </div>
+  
+          <div class="col-lg-4 mar-20-tb">
+            <!-- Default input -->
+            <label for="exampleForm2 pt-lg-0 pt-3">Mobile Number</label>
+            <input type="text" id="exampleForm2" type="text" [(ngModel)]="mobilenumber" #mobilenumber1="ngModel" name="mobilenumber" pattern="[0-9]{10}"
+              required class="form-control">
+              <div  class="text-danger" *ngIf="mobilenumber1.invalid && (mobilenumber1.dirty || mobilenumber1.touched)|| formSubmitted&&mobilenumber1.errors">
+            
+                  <div class="text-danger" *ngIf="mobilenumber1.errors.required">Please Enter Mobile number </div>
+                  <div class="text-danger" *ngIf="(mobilenumber1.errors.pattern)">Invalid Mobile number</div>
+              
+                </div>
+                <div *ngIf="check &&  mobilenumber1.dirty && mobilenumber1.touched">Mobile number already existed </div>
+          </div>
+  
+          <div class="col-lg-4 mar-20-tb">
+            <label for="exampleForm2">Courses</label>
+            <select class="browser-default custom-select form-bg" #fontSize value="Select" name="course" [(ngModel)]="course" #dept1="ngModel">
+              <option *ngFor="let i of Courses" [(value)]='i'>{{i}}</option>
+  
+            </select>
+          </div>
+          
+          <div class="col-lg-4 mar-20-tb">
+            <label for="exampleForm2  pt-lg-0 pt-3">Gender</label>
+            <div class=" flx">
+              <div>
+                <input type="radio" name="gender" [(ngModel)]="gender" id="defaultInline1" value="Male" [checked]="(gender=='male' || gender=='Male')">
+                <label for="defaultInline1" class="ml-2">Male</label>
+              </div>
+              <div class="pl-4">
+                <input type="radio" name="gender" [(ngModel)]="gender" id="defaultInline2" value="Female" [checked]="(gender=='female' || gender=='Female')">
+                <label for="defaultInline2" class="ml-2">Female</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="clos-but add-btn1" >Close</button>
+        <button type="submit" class="add-btn side_bg" (click)="formSubmitted=true;">Update</button>
+      </div>
+    </form>
+  </div>
+  <div>
+  
+  
+  
+    
+  
+  
+  

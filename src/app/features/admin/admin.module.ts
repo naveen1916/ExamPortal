@@ -12,6 +12,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { UsersComponent } from './users/users.component';
 import { EditQuestionComponent } from './questions/edit-question/edit-question.component';
 import { AddQuestionComponent } from './questions/add-question/add-question.component';
+import { MydialogComponent } from './mydialog/mydialog.component';
 
 
 @NgModule({
@@ -23,6 +24,6 @@ import { AddQuestionComponent } from './questions/add-question/add-question.comp
     NgxPaginationModule
   ],
   declarations: [DashboardComponent, QuestionsComponent, ReportsComponent, QuestionComponent,
-    UsersComponent, EditQuestionComponent, AddQuestionComponent],
+    UsersComponent, EditQuestionComponent, AddQuestionComponent, MydialogComponent],
 })
 export class AdminModule { }

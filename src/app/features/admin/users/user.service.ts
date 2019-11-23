@@ -11,7 +11,7 @@ export class UserService {
   getCharacters() {
     return this
       .http
-      .get(`${environment.url}user/getAllUser`);
+      .get(`${environment.url}user/`);
   }
   
   authenticateuser(data){
@@ -24,5 +24,8 @@ export class UserService {
   userlogin(data){
     console.log(data)
     return this.http.post(`${environment.url}auth/local`, data);
+  }
+  addusersfromexcel(data){
+    return this.http.post(`${environment.url}user/users/addfromexcel`, data);
   }
 }

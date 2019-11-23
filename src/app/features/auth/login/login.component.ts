@@ -20,13 +20,18 @@ export class LoginComponent implements OnInit {
  
   ngOnInit() {
     var data;
-   //this.adduser(data)
+  // this.adduser(data)
   }
   onSubmit(data){
     this.usersevice.userlogin(data).subscribe((data:any)=>{
 console.log(data)
 if(data &&data.user){
-this.router.navigate(['/exam/home'])
+  if(data.user.email == 'venkivenki519@gmail.com'){
+    this.router.navigate(['/admin/'])
+
+  }
+ else this.router.navigate(['/exam/home'])
+
 }
     })
 
@@ -35,8 +40,10 @@ this.router.navigate(['/exam/home'])
   adduser(data){
     var test={
       name:'VENKATESH CHAVVAKULA',
-      email:'venkateshchavvakula198@gmail.com',
-      password:'Venkatesh@123'
+      email:'venkivenki519@gmail.com',
+      password:'Venkatesh@123',
+      role:'admin'
+
     }
     this.usersevice.createnewuser(test).subscribe(data=>{
       console.log(data)

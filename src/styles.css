@@ -420,3 +420,8 @@ th.ng2-smart-actions-title.ng2-smart-actions-title-add {
 
 
   
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.hidepad .mat-dialog-container{
+  padding: 0px !important;
+}

@@ -1,2 +1,186 @@
-<h2>User Details</h2>
+<!--<h2>User Details</h2>
 <ng2-smart-table [settings]="settings" [source]="characters" (edit)='rowSelectEvent($event)'></ng2-smart-table>
+-->
+
+
+
+
+
+
+<div class="row" (contextmenu)="selectedName=false;showlist=false">
+    <div class="col-lg-10 col-md-12 col-sm-12" >
+      <section class="employee-height">
+  
+        <div class="content-nav ietop1 pt-3">
+          <div class="row headfont fon-16 fw-4 col1-f pt-3 bc-icons-2 pl-1 fileselection">
+           
+            <hr class="mt-0 hr-w hr1_bg">
+          </div>
+  
+          <div class="row place-nav-c link-quick link-quick3 headfont fon-16 fw-5" style="background-color: #fafafa">
+            <div class="col-lg-9 col-md-9 col-sm-12 p-0">
+  
+              <p class="pt-3 mb-0 fntweight">Employees list</p>
+            </div>
+           
+            <!-- <div class="col-lg-3 col-md-12 col-sm-12">
+  
+              <div>
+                <mat-icon  class="pointer" >arrow_back</mat-icon>
+              </div>
+              <a ><span style="margin-left: 8px">{{path}}</span></a>
+            </div> -->
+            <hr class="mt-0 hr-w">
+          </div> 
+        </div>
+        <div class="row" >
+          
+          <!-- <input type="file" id="inputtest" hidden /> -->
+          <!-- <div class="col-lg-3 col-md-3 Add-employee-flex">
+           
+          </div> -->
+          <div class="col-lg-6 col-md-6 Add-employee-flex">
+              <button class="add-emp-but mar-t-11" style="margin-right: 10px !important;" (click)="openDialog()"> <img src="assets/images/Group23.png"
+                class="add-emp-pad">Add Students</button>
+            <button class="add-emp-but mar-t-11"  (click)="selectfile()" > <img src="assets/images/exceldata.png"
+              class="add-emp-pad" >Import Data</button>
+          </div>
+          
+  
+        </div>
+  
+  
+       
+        <!-- Central Modal Small -->
+  
+        <div class="loader1" *ngIf="isloading"></div>
+        <div class="row  mt-5">
+          <div class="table-responsive">
+            <table class="table table_space table-fixed cntraln w-100 d-block d-md-table table-responsive tblresp tdpadng11">
+              <thead class="thcolor tab-bg" *ngIf="getemployeedata!=0" (click)="selectedName=false;showlist=false">
+                <tr>
+                  <th class="table_td_pad tblwdth">
+                    First Name
+  
+                    <i class="fa fa-caret-up pl-point caret-up-pos" aria-hidden="true" (click)="sortFNameAsc();uparrow=true;dateSort=false;nameSort=true;" [ngClass]="{'caret-up-pos-active' :uparrow && nameSort }"></i>
+                    <i class="fa fa-caret-down caret-down-pos pl-point" aria-hidden="true" (click)="sortFNameDsc();uparrow=false;dateSort=false;nameSort=true;" [ngClass]="{'caret-down-pos-active' :  !uparrow && nameSort}"></i>
+                  </th>
+  
+                  <th class="table_td_pad tblwdth">
+                    Last Name
+  
+                    <i class="fa fa-caret-up caret-up-pos pl-point" aria-hidden="true" (click)="sortLNameAsc();dateuparrow=true;dateSort=true;nameSort=false;" [ngClass]="{'caret-up-pos-active' :dateuparrow && dateSort }"></i>
+                    <i class="fa fa-caret-down caret-down-pos pl-point" aria-hidden="true" (click)="sortLNameDsc();dateuparrow=false;dateSort=true;nameSort=false;" [ngClass]="{'caret-down-pos-active' : !dateuparrow && dateSort}"></i>
+                  </th>
+                  <th scope="col" class="table_td_pad tblwdth">Gender</th>
+                  <th scope="col" class="table_td_pad tblwdth">Mobile Number</th>
+                  <th scope="col" class="table_td_pad tblwdth">Email</th>
+                  <th scope="col" class="table_td_pad tblwdth">Department</th>
+                  <th scope="col" class="table_td_pad tblwdth">Status</th>
+                  <th scope="col" class="table_td_pad tblwdth">Action</th>
+  
+                  <!-- <th scope="col" class="table_td_pad">
+                    Actions
+                  </th> -->
+                </tr>
+              </thead>
+  
+  
+              <tbody class="tdatacol headfont fon-14 fw-4 pl-point">
+                 
+                <tr class="showbutton " *ngFor="let element of getemployeedata;let i = index" [ngClass]="{'employee-tr-inactive' :(element && element.active && !element.status )}">
+                  
+                     
+              
+                  <td>
+                    {{element.fname}}
+  
+                  </td>
+  
+                  <td>{{element.lname}}
+  
+                  </td>
+  
+                  <td>{{element.gender}}
+  
+                  </td>
+  
+                  <td>{{element.mobilenumber}}
+  
+                  </td>
+                  <td>
+                    <p class="tex-over employee-email mb-0"   >{{element.email}}</p>
+                  </td>
+                  <td *ngIf="element.department">{{element.department.deptname}}</td>
+  
+                  <td *ngIf="!element.department">Not Assigned</td>
+  
+  
+                  <td  *ngIf="!element.active">
+                       Pending
+                    </td>
+                    <td *ngIf="element.active">
+                    <label class="switch">
+                      <input type="checkbox" id="{{i}}" [checked]="(element.status)" [(ngModel)]="element.status"  (click)="deleteempData(element,'')" hidden>
+                       
+                      <div class="slider round"></div>
+                      </label>
+  
+                    
+                  </td>
+                           <td >
+  
+                              <ul  class="li_place ul-t float-right  add-employee-table">
+                               <li *ngIf='!element.active '><i class="far fa-envelope resend pl-point employee-resend hvrefct" (click)="resendmail(element)"></i></li>
+                              <li><i class="fas fa-pen penicn pl-point employee-pen hvrefct" (click)="editempData(element)" ></i></li>
+                              <li><i class="fas fa-trash-alt pl-point employee-trash hvrefct"  (click)="deleteempData(element,'delete')" ></i></li>
+                           </ul>
+                            </td>
+  
+                
+                </tr>
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- ==============================no employees found ================================================== -->
+        <div *ngIf=" getemployeedata && getemployeedata.length==0 && !isloading">
+  
+  
+          <div class="nodepart-imag">
+            <div>
+              <img src="assets/images/Group4328.png">
+            </div>
+            <p class="nodepart-content">No Employees Found</p>
+            <div>
+              <button class="add-dep-but" data-toggle="modal" data-target="#centralModallg"><img src="assets/images/Group4318.png"
+                  class="add-new-emp-pic-pad">Add New Employee</button>
+            </div>
+           
+            
+  
+          </div>
+   
+  
+  
+        </div>
+  
+  
+        <!-- ==============================no employees found ================================================== -->
+  
+  
+       
+  
+      </section>
+    </div>
+  
+  </div>
+  
+  
+  <div> <input type="file" style="display: none" id="selectinputfile" #fileInput (change)="adddatafromexcl()" accept=".xls,.xlsx">
+          
+        
+  </div>
+  
+  
