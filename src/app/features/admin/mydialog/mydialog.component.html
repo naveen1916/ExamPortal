@@ -2,7 +2,7 @@
   
       <div class="modal-header mod-head-bg">
         <h4 class="modal-title w-100 add-new-emp-pop" id="myModalLabel">Add User Details</h4>
-        <button type="button" class="close " mat-dialog-close='false'>
+        <button type="button" class="close " mat-dialog-close='true' (click)="close()">
           <span aria-hidden="true" class="white-colr">&times;</span>
         </button>
       </div>
@@ -11,27 +11,91 @@
         <div class="row pad-lr-7r">
           <div class="col-lg-4 mar-20-tb">
             <!-- Default input -->
-            <label for="exampleForm2 pt-lg-0 pt-3">First Name</label>
-            <input type="text" id="exampleForm2" type="text" [(ngModel)]="fname" #fname1="ngModel" name="fname" required
+            <label for="exampleForm2 pt-lg-0 pt-3">Full Name</label>
+            <input type="text" id="exampleForm2" type="text" [(ngModel)]="name" #fname1="ngModel" name="name" required
               class="form-control">
   
               <div *ngIf="fname1.invalid && (fname1.dirty || fname1.touched)|| formSubmitted&&fname1.errors">
-                  <div class="text-danger" *ngIf="fname1.errors.required">Please Enter First Name</div>
+                  <div class="text-danger" *ngIf="fname1.errors.required">Please Enter Full Name</div>
                   <div  class="text-danger" *ngIf="(fname1.errors.pattern)">Enter Characters only</div>
                 </div>
   
           </div>
           <div class="col-lg-4 mar-20-tb">
             <!-- Default input -->
-            <label for="exampleForm2  pt-lg-0 pt-3">Last Name</label>
-            <input type="text" id="exampleForm2" class="form-control" [(ngModel)]="lname" #lname1="ngModel" name="lname" required>
+            <label for="exampleForm2  pt-lg-0 pt-3">Father Name</label>
+            <input type="text" id="exampleForm2" class="form-control" [(ngModel)]="fathername" #lname1="ngModel" name="fathername" required>
   
             <div *ngIf="lname1.invalid && (lname1.dirty || lname1.touched)|| formSubmitted&&lname1.errors">
-                <div class="text-danger" *ngIf="lname1.errors.required">Please Enter Last Name</div>
+                <div class="text-danger" *ngIf="lname1.errors.required">Please Enter Father Name</div>
                 <div  class="text-danger" *ngIf="(lname1.errors.pattern)">Enter Characters only</div>
               </div>
   
            
+          </div>
+          <div class="col-lg-4 mar-20-tb">
+            <!-- Default input -->
+            <label for="exampleForm2  pt-lg-0 pt-3">DOB</label>
+            <input id="exampleForm2" type="date"  [(ngModel)]="dob" #dob1="ngModel" name="dob"
+              class="form-control" required>
+  
+              <div *ngIf="dob1.invalid && (dob1.dirty || dob1.touched)|| formSubmitted&&dob1.errors">
+  
+                  <div class="text-danger" *ngIf="dob1.errors.required">Please Enter Email </div>
+          
+                  
+                </div>
+          </div>
+          <div class="col-lg-4 mar-20-tb">
+            <!-- Default input -->
+            <label for="exampleForm2  pt-lg-0 pt-3">Caste</label>
+            <input id="exampleForm2" type="text"  [(ngModel)]="caste" #caste1="ngModel" name="caste"
+              class="form-control" required>
+  
+              <div *ngIf="caste1.invalid && (caste1.dirty || caste1.touched)|| formSubmitted&&caste1.errors">
+  
+                  <div class="text-danger" *ngIf="caste1.errors.required">Please Enter caste </div>
+                  
+                </div>
+          </div>
+
+          <div class="col-lg-4 mar-20-tb">
+            <!-- Default input -->
+            <label for="exampleForm2 pt-lg-0 pt-3">Aadhar Number</label>
+            <input type="text" id="exampleForm2" type="text" [(ngModel)]="aadhar" #aadharno="ngModel" name="aadhar" pattern="[0-9]{12}"
+              required class="form-control" maxlength="12">
+              <div  class="text-danger" *ngIf="aadharno.invalid && (aadharno.dirty || aadharno.touched)|| formSubmitted&&aadharno.errors">
+            
+                  <div class="text-danger" *ngIf="aadharno.errors.required">Please Enter Aadhar number </div>
+                  <div class="text-danger" *ngIf="(aadharno.errors.pattern)">Invalid Aadhar number</div>
+              
+                </div>
+               
+          </div>
+
+          <div class="col-lg-4 mar-20-tb">
+            <label for="exampleForm2">Qualification</label>
+            <select class="browser-default custom-select form-bg" value="Select" name="qualification" [(ngModel)]="qualification" #qualif="ngModel">
+              <option *ngFor="let i of Qualification" [(value)]='i'>{{i}}</option>
+  
+            </select>
+          </div>
+          <div class="col-lg-8 mar-20-tb">
+            <label for="exampleForm2  pt-lg-0 pt-3">Current Status</label>
+            <div class=" flx">
+              <div>
+                <input type="radio" name="status" [(ngModel)]="status" id="defaultInline1" value="student" >
+                <label for="defaultInline1" class="ml-2">Student</label>
+              </div>
+              <div class="pl-4">
+                <input type="radio" name="status" [(ngModel)]="status" id="defaultInline2" value="employee">
+                <label for="defaultInline2" class="ml-2">Employee</label>
+              </div>
+              <div class="pl-4">
+                <input type="radio" name="status" [(ngModel)]="status" id="defaultInline2" value="others">
+                <label for="defaultInline2" class="ml-2">Others</label>
+              </div>
+            </div>
           </div>
           <div class="col-lg-4 mar-20-tb">
             <!-- Default input -->
@@ -83,11 +147,47 @@
               </div>
             </div>
           </div>
+          <div class="col-lg-6 mar-20-tb">
+            <!-- Default input -->
+            <label for="exampleForm2 pt-lg-0 pt-3">Batch Time</label>
+            <input type="text" id="exampleForm2" type="text" [(ngModel)]="batchtime" #time="ngModel" name="batchtime" 
+              required class="form-control">
+              <div  class="text-danger" *ngIf="time.invalid && (time.dirty || time.touched)|| formSubmitted&&time.errors">
+            
+                  <div class="text-danger" *ngIf="time.errors.required">Please Enter Batch  Time </div>
+              
+                </div>
+                
+          </div>
+          <div class="col-lg-6 mar-20-tb">
+            <!-- Default input -->
+            <label for="exampleForm2 pt-lg-0 pt-3">Admission Number</label>
+            <input type="text" id="exampleForm2" type="text" [(ngModel)]="admissionno" #admin="ngModel" name="admissionno" 
+              required class="form-control" placeholder="VSP/NAD/XXX">
+              <div  class="text-danger" *ngIf="admin.invalid && (admin.dirty || admin.touched)|| formSubmitted&&admin.errors">
+            
+                  <div class="text-danger" *ngIf="admin.errors.required">Please Enter Admission  No </div>
+              
+                </div>
+                
+          </div>
+          <div class="col-lg-12 mar-20-tb">
+            <!-- Default input -->
+            <label for="comment pt-lg-0 pt-3">Address</label>
+              <textarea class="form-control" rows="5" id="comment" [(ngModel)]="address" #add="ngModel" name="address" 
+              required class="form-control" placeholder="Address"></textarea>
+              <div  class="text-danger" *ngIf="add.invalid && (add.dirty || add.touched)|| formSubmitted&&add.errors">
+            
+                  <div class="text-danger" *ngIf="add.errors.required">Please Enter Address   </div>
+              
+                </div>
+                
+          </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="clos-but add-btn1" >Close</button>
-        <button type="submit" class="add-btn side_bg" (click)="formSubmitted=true;">Update</button>
+        <button type="button" class="clos-but add-btn1"  (click)="close()">Close</button>
+        <button type="submit" class="add-btn side_bg" (click)="formSubmitted=true;">Save</button>
       </div>
     </form>
   </div>

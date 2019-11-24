@@ -4,9 +4,18 @@
       <div class="navbar-header logo">
         <!-- <img class="img-responsive" src="assets/images/my-logo.png" /> -->
       </div>
-      <ul class="nav d-none d-md-flex">
-        <li class="nav-item ">
+      <ul class="nav d-none d-md-flex" >
+        <li class="nav-item " *ngIf="!admin">
           <a class="nav-link fa fa-home" routerLinkActive="active" [routerLink]="['/exam/home']" data-toggle="tooltip" data-placement="bottom" title="Home" > Home</a>
+        </li>
+        <li class="nav-item " *ngIf="admin">
+          <a class="nav-link fa fa-home" routerLinkActive="active" [routerLink]="['/admin/users']" data-toggle="tooltip" data-placement="bottom" title="Users" > Users</a>
+        </li>
+        <li class="nav-item " *ngIf="admin">
+          <a class="nav-link fa fa-home" routerLinkActive="active" [routerLink]="['/admin/questions']" data-toggle="tooltip" data-placement="bottom" title="Questions" > Questions</a>
+        </li>
+        <li class="nav-item " *ngIf="admin">
+          <a class="nav-link fa fa-home" routerLinkActive="active" [routerLink]="['/admin/dashboard']" data-toggle="tooltip" data-placement="bottom" title="Dashboard" > Dashboard</a>
         </li>
       <!-- <li class="nav-item ">
           <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/questions']" href="#" data-toggle="tooltip" data-placement="bottom" title="Exam"> Questions</a>
@@ -25,7 +34,7 @@
                 </div>
                 <div class="collapse" [class.show]="show">
                   <span>{{ userName }}</span>
-                  <button class="btn btn-primary">LOGOUT</button>
+                  <button class="btn btn-primary"  (click)="logout()">LOGOUT</button>
                 </div>
             </div>
           </div>

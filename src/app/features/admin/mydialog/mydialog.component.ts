@@ -13,10 +13,19 @@ export interface DialogData {
 export class MydialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<MydialogComponent>,@Inject(MAT_DIALOG_DATA) public data:DialogData) { }
-  Courses=['PGDCA','DTP','TALLY']
+  Courses=['PGDCA','DTP','TALLY','PHOTOSHOP','AUTOCAD','HARDWARE','C','C++','JAVA']
+  Qualification=['BELOW TENTH','SSC','INTER/DIPLOMA/ITI','ANY DEGREE','ANY PG','ILLITERATE']
   ngOnInit() {
   }
   adduserDetails(data): void {
-    this.dialogRef.close(data);
+    if(data.valid){
+      this.dialogRef.close(data);
+
+    }
   }
+  close(){
+    this.dialogRef.close(false);
+ }
+ 
+
 }

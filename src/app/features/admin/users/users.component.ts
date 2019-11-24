@@ -16,30 +16,33 @@ export class UsersComponent implements OnInit {
   constructor(private _userService: UserService, private _examService: ExamService,public dialog: MatDialog) { }
 name
 color
+compleusersdata
 @ViewChild('fileInput',{static: true} ) fileInput:ElementRef;
 
   ngOnInit() {
-    this
-      ._userService
-      .getCharacters()
-      .subscribe((data: Table[]) => {
-        this.characters = data;
+    this._userService.getCharacters().subscribe((data: any) => {
+      console.log(data)
+        this.compleusersdata=data
       });
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(MydialogComponent, {
       width: '900px',
-      height:'500px',
+      height:'600px',
       panelClass:'hidepad',
+      disableClose:true,
       data: { name: this.name, color: this.color }
     });
 
     dialogRef.afterClosed().subscribe(res => {
-    
-      this._userService.createnewuser(res.value).subscribe(data=>{
+      if(res){
+        console.log(res.value)
+        this._userService.createnewuser(res.value).subscribe(data=>{
+console.log(data)
+        })
 
-      })
+      }  
     });
   }
 

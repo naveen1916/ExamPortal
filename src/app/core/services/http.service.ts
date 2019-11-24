@@ -8,11 +8,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 export class HttpService {
 
   constructor(private http: HttpClient) {
-
   }
   post(url, data) {
-    console.log(' data');
-    console.log(data);
     const headers = new HttpHeaders().set('content-type', 'application/json');
     headers.append('Access-Control-Allow-Origin', '*');
     return this.http.post(url, data, { headers });

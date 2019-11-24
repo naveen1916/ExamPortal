@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import{Router} from '@angular/router'
 
 @Component({
   selector: 'app-header',
@@ -9,11 +10,22 @@ export class HeaderComponent implements OnInit {
   show = false;
   showMenu = false;
   userName: string;
-  constructor() {
-    this.userName = 'VENKATESH';
+  admin:boolean=false
+  constructor(private router:Router) {
   }
 
   ngOnInit() {
+    var profile :any=JSON.parse(localStorage.getItem('user'))
+  console.log(profile)
+    if(profile &&profile.name) {
+      this.userName = profile.name;
+     
+    }
+    if(profile &&profile.role=='admin'){
+      this.admin=true
+    }else{
+      this.admin=false
+    }
   }
   toggleCollapse() {
     this.show = !this.show;
@@ -21,5 +33,11 @@ export class HeaderComponent implements OnInit {
   toggleCollapseMenu() {
     this.showMenu = !this.showMenu;
     console.log(this.showMenu);
+  }
+  logout(){
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+    this.router.navigate(['/'])
+
   }
 }

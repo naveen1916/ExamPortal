@@ -24,10 +24,11 @@ export class LoginComponent implements OnInit {
   }
   onSubmit(data){
     this.usersevice.userlogin(data).subscribe((data:any)=>{
-console.log(data)
 if(data &&data.user){
-  if(data.user.email == 'venkivenki519@gmail.com'){
-    this.router.navigate(['/admin/'])
+  localStorage.setItem('user',JSON.stringify(data.user))
+  localStorage.setItem('token',data.token)
+  if(data.user.role == 'admin'){
+    this.router.navigate(['/admin/users'])
 
   }
  else this.router.navigate(['/exam/home'])
